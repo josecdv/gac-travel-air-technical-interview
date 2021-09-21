@@ -26,6 +26,7 @@ Partiendo del proyecto esqueleto `gac-air-technical-interview-test` y teniendo e
 
 ![Ejemplo de resultado.](./public/result.png "Ejemplo de resultado.")
 
+5. Realizar push de los cambios y enviar el enlace del fork.
 ### Información de utilidad
 A continuación se listan una serie de puntos que pueden ser de ayuda para agilizar la finalización de la prueba técnica.
 #### Symfony Local Web Server

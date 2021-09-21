@@ -11,7 +11,7 @@ class AirController extends AbstractController
     #[Route('/', name: 'availability')]
     public function availability(): Response
     {
-        // TODO: La lóica de negocio debe de estar separada en el servicio aéreo.
+        // TODO: La lógica de negocio debe de estar separada en un servicio.
 
         return $this->render('air/availability.html.twig', [
             'controller_name' => 'AirController',

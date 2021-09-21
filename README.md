@@ -23,6 +23,9 @@ Partiendo del proyecto esqueleto `gac-air-technical-interview-test` y teniendo e
 - Contraseña: demo
 3. Interpretar la respuesta obtenida con `DOMDocument` o `SimpleXML` y cargar los datos sobre una estructura intermedia _(array u objeto)_.
 4. Renderizar el array de ofertas en la vista `availability.html.twig` utilizando TWIG y la estructura intermedia generada en el punto anterior. La vista dispone del render de una oferta con datos estáticos sobre la que trabajar.
+
+![Ejemplo de resultado.](./public/result.png "Ejemplo de resultado.")
+
 ### Información de utilidad
 A continuación se listan una serie de puntos que pueden ser de ayuda para agilizar la finalización de la prueba técnica.
 #### Symfony Local Web Server

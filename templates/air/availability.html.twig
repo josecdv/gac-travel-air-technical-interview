@@ -1,0 +1,158 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GAC Travel{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">1 oferta disponible</h1>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Oferta. -->
+    <div class="card row shadow-sm mb-5">
+        <div class="card-body col-10">
+            <!-- Ruta. -->
+            <div class="row route">
+                <div class="col option">
+                    <ul class="list-group">
+                        <li class="list-group-item fs-5 option">
+                            <strong>ALC</strong> - <strong>LON</strong>
+                            <span class="badge bg-success">DIRECTO</span>
+                            <i class="bi bi-clock"></i> 120 minutos
+                        </li>
+                        <li class="list-group-item">
+                            <ul class="list-inline">
+                                <li class="list-inline-item col-3">ALC 15JUN 15:00</li>
+                                <li class="list-inline-item col-3">LHR 15JUN 17:00</li>
+                                <li class="list-inline-item col-2"><i class="bi bi-clock"></i> 120 minutos</li>
+                                <li class="list-inline-item col-2">IB4545</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /Ruta. -->
+            <!-- Ruta. -->
+            <div class="row route">
+                <div class="col option">
+                    <ul class="list-group">
+                        <li class="list-group-item fs-5 option">
+                            <strong>LON</strong> - <strong>ALC</strong>
+                            <span class="badge bg-warning">1 ESCALA</span>
+                            <i class="bi bi-clock"></i> 180 minutos
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Segmento. -->
+                            <ul class="list-inline">
+                                <li class="list-inline-item col-3">LHR 20JUN 15:00</li>
+                                <li class="list-inline-item col-3">MAD 20JUN 16:00</li>
+                                <li class="list-inline-item col-2"><i class="bi bi-clock"></i> 60 minutos</li>
+                                <li class="list-inline-item col-2">IB15</li>
+                            </ul>
+                            <!-- /Segmento. -->
+                            <!-- Segmento. -->
+                            <ul class="list-inline">
+                                <li class="list-inline-item col-3">MAD 20JUN 17:00</li>
+                                <li class="list-inline-item col-3">ALC 20JUN 18:00</li>
+                                <li class="list-inline-item col-2"><i class="bi bi-clock"></i> 60 minutos</li>
+                                <li class="list-inline-item col-2">IB16</li>
+                            </ul>
+                            <!-- /Segmento. -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /Ruta. -->
+        </div>
+        <!-- Total tarifas y tiempo límite emisión. -->
+        <div class="card-body col-2 text-center">
+            <h1 class="card-title pricing-card-title">597,00EUR</h1>
+            <span class="mt-2 d-block"><i class="bi bi-clock"></i> TKTL 15JUN 23:59</span>
+        </div>
+        <!-- /Total tarifas y tiempo límite emisión. -->
+        <!-- Desglose tarifa por PAX. -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">PTC</th>
+                        <th scope="col" class="text-center">Base</th>
+                        <th scope="col" class="text-center">Taxes</th>
+                        <th scope="col" class="text-center">ALC-LHR</th>
+                        <th scope="col" class="text-center">LHR-MAD</th>
+                        <th scope="col" class="text-center">MAD-ALC</th>
+                    </tr>
+                </thead>
+                <tbody class="pax-fare-data">
+                    <!-- PAX. -->
+                    <tr>
+                        <td>AT</td>
+                        <td class="text-center">100,00EUR</td>
+                        <td class="text-center">99,00EUR</td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-success">1PC</span>
+                            <small>FBXY <mark>Y</mark></small>
+                        </td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-danger">0PC</span>
+                            <small>FBXX <mark>X</mark></small>
+                        </td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-success">1PC</span>
+                            <small>FBXY <mark>Y</mark></small>
+                        </td>
+                    </tr>
+                    <!-- /PAX. -->
+                    <!-- PAX. -->
+                    <tr>
+                        <td>CHD</td>
+                        <td class="text-center">100,00EUR</td>
+                        <td class="text-center">99,00EUR</td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-success">1PC</span>
+                            <small>FBXY <mark>Y</mark></small>
+                        </td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-danger">0PC</span>
+                            <small>FBXX <mark>X</mark></small>
+                        </td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-success">1PC</span>
+                            <small>FBXY <mark>Y</mark></small>
+                        </td>
+                    </tr>
+                    <!-- /PAX. -->
+                    <!-- PAX. -->
+                    <tr>
+                        <td>INF</td>
+                        <td class="text-center">100,00EUR</td>
+                        <td class="text-center">99,00EUR</td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-success">1PC</span>
+                            <small>FBXY <mark>Y</mark></small>
+                        </td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-danger">0PC</span>
+                            <small>FBXX <mark>X</mark></small>
+                        </td>
+                        <td scope="row" class="text-center">
+                            <span class="badge bg-success">1PC</span>
+                            <small>FBXY <mark>Y</mark></small>
+                        </td>
+                    </tr>
+                    <!-- /PAX. -->
+                </tbody>
+            </table>
+        </div>
+        <!-- /Desglose tarifa por PAX. -->
+    </div>
+    <!-- /Oferta. -->
+</div>
+{% endblock %}

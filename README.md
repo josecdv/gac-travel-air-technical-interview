@@ -49,6 +49,34 @@ Se permite el uso del paquete `maker` de Symfony, ya requerido como librería.
 ```
 symfony console list make
 ```
+#### Asociación datos API mockup (esquema NDC 17.2)
+La API mockup devolverá una única oferta, con dos trayectos _(ida y vuelta)_. Cada trayecto esta compuesto por dos segmentos _(una escala)_. La oferta disponible es para cuatro pasajeros, 2 ADT _(ADULT_01 y ADULT_02)_, 1 CHD _(CHILD_01)_ y 1 INF _(INFANT_01)_. Las tarifas se agrupan por PTC, esto quiere decir que una tarifa puede hacer referencia a más de un pasajero.
+
+Todos los identificadores a otros elementos, como los pasajeros, segmentos o detalles de tarifa, se identifican a nivel de etiqueta con el sufijo `Ref`, esto informa de que hay más información desglosada en otro elemento de la respuesta. Las referencias pueden darse para múltiples elementos, dado el caso los encontrarás separados con un espacio en blanco. Por ejemplo, los detalles de tarifa "TCLESEU" aplican a los segmentos "IB503920211210ALCBCN" y "IB559320211210BCNLGW". Los datos desglosados de las referencias los encontrarás como hijos de `DataLists`.
+```
+<FareComponent>
+    <!-- Referencia a //DataLists/PriceClassList/PriceClass/@PriceClassID -->
+    <PriceClassRef>TCLESEU</PriceClassRef>
+    <!-- Referencia a //DataLists/FlightSegmentList/FlightSegment/@SegmentKey -->
+    <SegmentRefs>IB503920211210ALCBCN IB559320211210BCNLGW</SegmentRefs>
+</FareComponent>
+```
+Para facilitar la interpretación de la respuesta, a continuación se listan algunos XPATH para los elementos que componen una oferta aérea.
+- Ofertas: `//Offer`
+- PTC según identificador de PAX: `//DataLists/PassengerListPassenger`
+- Trayectos: `//Offer/FlightsOverview/FlightRef` enlaza con `//DataLists/Flight/@FlightKey`
+- Segmentos por trayecto: `//DataLists/Flight/SegmentReferences` enlaza con `//DataLists/FlightSegmentList/FlightSegment/@SegmentKey`
+- Tarifas: `//Offer/OfferItem`
+- Tarifa aplicada a un grupo de PTC: `//Offer/OfferItem/FareDetail/PassengerRefs`
+- Detalles de tarifa _(equipaje, cabina, políticas de cancelación, etc.)_ por tarifa y segmento: `//Offer/OfferItem/FareDetail/FareComponent` enlaza con `//DataLists/PriceClassList/PriceClass/@PriceClassID`
+
+La estructura más básica que describe una oferta aérea es:
+- Oferta
+    - Pasajero(s)
+        - Tarifa
+        - Detalles de tarifa _(asociación entre tarifa y segmento)_. Un detalle por cada segmento del itinerario.
+    - Trayectos
+        - Segmento(s)
 ### Notas
 1. https://symfony.com/download
 2. https://www.php.net/manual/es/book.curl.php
